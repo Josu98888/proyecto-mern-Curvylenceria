@@ -6,38 +6,40 @@ import Contact from '../pages/Contact' ;
 import Login from '../pages/Login' ;
 import Register from '../pages/Register' ;
 import Error404 from '../pages/Error404';
+import Layout from '../layout/Layout';
 
 
 
 export const router = createBrowserRouter([
     {
         path: '/' ,
-        element: <Home/> ,
+        element: <Layout/> ,
         errorElement: <Error404/> ,
-    },
-    {
-        path: '/products' ,
-        element: <Products/> ,
-        errorElement: <Error404/> ,
-    },
-    {
-        path: '/cartshopping' ,
-        element: <CartShopping/> ,
-        errorElement: <Error404/> ,
-    },
-    {
-        path: '/contact' ,
-        element: <Contact /> ,
-        errorElement: <Error404/> ,
-    },
-    {
-        path: '/login' ,
-        element: <Login/> ,
-        errorElement: <Error404/> ,
-    },
-    {
-        path: '/register' ,
-        element: <Register/> ,
-        errorElement: <Error404/> ,
+        children: [
+            {
+                path: '/',
+                element: <Home/> ,
+            },
+            {
+                path: '/products' ,
+                element: <Products/> ,
+            },
+            {
+                path: '/cartshopping' ,
+                element: <CartShopping/> ,
+            },
+            {
+                path: '/contact' ,
+                element: <Contact /> ,
+            },
+            {
+                path: '/login' ,
+                element: <Login/> ,
+            },
+            {
+                path: '/register' ,
+                element: <Register/> ,
+            },
+        ]
     },
 ]) 
