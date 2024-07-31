@@ -1,11 +1,13 @@
 import React from 'react';
+import SliderProducts from '../components/SliderProducts';
 
 const Home = () => {
   return (
     <div>
+
       { /*destacado*/}
       <div>
-        <h2>Destacado</h2>
+        <SliderProducts /> 
       </div>
       { /*Todos los productos*/}
       <div>
