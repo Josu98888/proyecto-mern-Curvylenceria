@@ -21,7 +21,7 @@ const CardProduct = ({item}) => {
         </div>
         {/* carrito */}
         <div className={styles.cardPoduct__containerCart}>
-          <Link to={`/products/${_id}`} >Ver producto</Link>
+          <Link className={styles.cardProduct__link}to={`/products/${_id}`} >Ver producto</Link>
           <i class="bi bi-eye"></i>
         </div>
     </div>
