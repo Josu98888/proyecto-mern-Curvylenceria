@@ -1,6 +1,7 @@
 import React from "react";
 import SliderProducts from "../components/SliderProducts";
 import BtnAllProducts from "../components/BtnAllProducts";
+import Favorites from "./Favorites";
 
 const Home = () => {
     return (
@@ -15,7 +16,7 @@ const Home = () => {
             </div>
             {/*más elegidos*/}
             <div>
-                <h2>Más elegidos</h2>
+            <Favorites />
             </div>
             {/*ofertas */}
             <div>

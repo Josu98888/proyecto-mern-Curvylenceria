@@ -1,49 +1,55 @@
 import { createBrowserRouter } from 'react-router-dom';
-import Home from '../pages/Home' ;
-import Products from '../pages/Products' ;
-import Product from '../pages/Product' ;
-import CartShopping from '../pages/CartShopping' ;
-import Contact from '../pages/Contact' ;
-import Login from '../pages/Login' ;
-import Register from '../pages/Register' ;
+import Home from '../pages/Home';
+import Products from '../pages/Products';
+import Product from '../pages/Product';
+import CartShopping from '../pages/CartShopping';
+import Contact from '../pages/Contact';
+import Login from '../pages/Login';
+import Register from '../pages/Register';
 import Error404 from '../pages/Error404';
 import Layout from '../layout/Layout';
+import FavoritesProvider from '../context/Favorites';
+import Favorites from '../pages/Favorites';
 
 
 
 export const router = createBrowserRouter([
     {
-        path: '/' ,
-        element: <Layout/> ,
-        errorElement: <Error404/> ,
+        path: '/',
+        element: <FavoritesProvider> <Layout /> </FavoritesProvider>,
+        errorElement: <Error404 />,
         children: [
             {
                 path: '/',
-                element: <Home/> ,
+                element: <Home />,
             },
             {
-                path: '/products' ,
-                element: <Products/> ,
+                path: '/products',
+                element: <Products /> ,
             },
             {
-                path: '/products/:id' ,
-                element: <Product/> ,
+                path: '/products/:id',
+                element:  <Product />,
             },
             {
-                path: '/cartshopping' ,
-                element: <CartShopping/> ,
+                path: '/favorites',
+                element:  <Favorites/> ,
             },
             {
-                path: '/contact' ,
-                element: <Contact /> ,
+                path: '/cartshopping',
+                element: <CartShopping />,
             },
             {
-                path: '/login' ,
-                element: <Login/> ,
+                path: '/contact',
+                element: <Contact />,
             },
             {
-                path: '/register' ,
-                element: <Register/> ,
+                path: '/login',
+                element: <Login />,
+            },
+            {
+                path: '/register',
+                element: <Register />,
             },
         ]
     },
