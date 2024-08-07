@@ -10,6 +10,7 @@ import Error404 from '../pages/Error404';
 import Layout from '../layout/Layout';
 import FavoritesProvider from '../context/Favorites';
 import Favorites from '../pages/Favorites';
+import  Offers from '../pages/Offers';
 
 
 
@@ -34,6 +35,10 @@ export const router = createBrowserRouter([
             {
                 path: '/favorites',
                 element:  <Favorites/> ,
+            },
+            {
+                path: '/offers',
+                element:  <Offers/> ,
             },
             {
                 path: '/cartshopping',

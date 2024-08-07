@@ -1,7 +1,8 @@
 import React from "react";
 import SliderProducts from "../components/SliderProducts";
 import BtnAllProducts from "../components/BtnAllProducts";
-import Favorites from "./Favorites";
+import ProductsOffer from "../components/ProductsOffer";
+import ButtonAllOffers from "../components/ButtonAllOffers";
 
 const Home = () => {
     return (
@@ -14,13 +15,13 @@ const Home = () => {
             <div>
                 <BtnAllProducts />
             </div>
-            {/*más elegidos*/}
-            <div>
-            <Favorites />
-            </div>
             {/*ofertas */}
             <div>
-                <h2>Ofertas</h2>
+                <ProductsOffer />
+            </div>
+            {/*Todos las ofertas*/}
+            <div>
+                <ButtonAllOffers />
             </div>
         </div>
     );
