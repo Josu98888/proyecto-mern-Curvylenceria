@@ -3,6 +3,7 @@ import SliderProducts from "../components/SliderProducts";
 import BtnAllProducts from "../components/BtnAllProducts";
 import ProductsOffer from "../components/ProductsOffer";
 import ButtonAllOffers from "../components/ButtonAllOffers";
+import SocialNetworks from "../components/SocialNetworks";
 
 const Home = () => {
     return (
@@ -14,6 +15,10 @@ const Home = () => {
             {/*Todos los productos*/}
             <div>
                 <BtnAllProducts />
+            </div>
+            {/*Redes sociales*/}
+            <div>
+                <SocialNetworks />
             </div>
             {/*ofertas */}
             <div>
