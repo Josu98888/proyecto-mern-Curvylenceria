@@ -1,14 +1,44 @@
 import React from "react";
 import styles from "../css/cardProduct.module.css";
 import { Link } from "react-router-dom";
-import { useFavoriteContext } from "../context/Favorites.js" ;
+import { useFavoriteContext } from "../context/Favorites.js";
 
 const CardProduct = ({ item }) => {
-    const { image, title, price, _id } = item;
+    const { image, title, price, _id, discount, offer } = item;
 
     const { favorite, addFavorite } = useFavoriteContext();
 
-    const isFavorite = favorite.some((fav) => fav._id === item._id) ;
+    const isFavorite = favorite.some((fav) => fav._id === item._id);
+
+    const priceOffer = price - (price * discount) / 100;
+
+    const haveOffer = () => {
+        return offer === true ? (
+            <div className="d-flex">
+                <p className={styles.cardProduct__price}>
+                    {" "}
+                    $ {Math.ceil(priceOffer)}
+                </p>
+                <s className={styles.cardProduct__priceOld}> $ {price} </s>
+            </div>
+        ) : (
+            <p className={styles.cardProduct__price}> ${priceOffer}</p>
+        );
+    };
+    const blockFavorite = (item) => {
+        return (
+            <div onClick={() => addFavorite(item)}>
+                {isFavorite ? (
+                    <i
+                        className="bi bi-heart-fill"
+                        style={{ color: "red" }}
+                    ></i>
+                ) : (
+                    <i className="bi bi-heart"></i>
+                )}
+            </div>
+        );
+    };
 
     return (
         <div className={styles.cardProduct}>
@@ -23,15 +53,9 @@ const CardProduct = ({ item }) => {
                 <h1 className={styles.cardProduct__title}> {title} </h1>
                 <div className={styles.cardProduct__containerPriceAndFav}>
                     {/* precio */}
-                    <p className={styles.cardProduct__price}> {price}</p>
+                    {haveOffer()}
                     {/* favorito */}
-                    <div onClick={() => addFavorite(item) } >
-                        {isFavorite ? (
-                            <i className="bi bi-heart-fill" style={{ color: 'red' }}></i>
-                        ) : (
-                            <i className="bi bi-heart"></i>
-                        )}
-                    </div>
+                    {blockFavorite(item)}
                 </div>
                 {/* carrito */}
                 <div className={styles.cardPoduct__containerCart}>
